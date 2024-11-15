@@ -21,12 +21,19 @@ const BooksList = ({ books }) => {
       {books.map((book) => (
         <div key={book.id} className="book-item">
           {/* Task 5.1: Display the book's thumbnail */}
+          <img src={book.imageLinks.thumbnail} alt="" />
           <p
             dangerouslySetInnerHTML={{
               __html: truncateText(book.title, 3),
             }}
           />
           {/* Task 5.2: Use truncateText to display the book's authors */}
+          <p
+            dangerouslySetInnerHTML={{
+              __html: truncateText(book.authors.toString(), 3),
+            }}
+          />
+
           <p className="free">Free</p>
         </div>
       ))}

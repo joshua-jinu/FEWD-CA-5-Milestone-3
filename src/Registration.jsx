@@ -4,7 +4,12 @@ import './App.css';
 const Register = ({ onSuccessfulRegistration }) => {
   // Task 3: Define State Variables
   // Hint: Define state variables to manage user input fields (name, email, password, repeatPassword).
-  // const [user, setUser] = useState({})
+  const [user, setUser] = useState({
+    name:'',
+    email:'',
+    password:'',
+    repeatPassword:'',
+  })
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formValid, setFormValid] = useState(true);
@@ -21,10 +26,12 @@ const Register = ({ onSuccessfulRegistration }) => {
     // Example validation functions
     const isNameValid = (name) => {
       // Check if name is valid
+      return name.length>0;
     };
 
     const isEmailValid = (email) => {
       // Check if email is valid
+      return /\S+@+\S+\.+\S+/.test(email);
     };
 
     const hasTenOrMoreChars = (str) => str.length >= 10;
